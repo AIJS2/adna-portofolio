@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Meta Tags for SEO & Social Sharing -->
+    <title>Adna Portfolio</title>
+    <meta
+      name="description"
+      content="Personal portfolio of Adna, a creative developer and designer."
+    />
+    <meta property="og:title" content="Adna Portfolio" />
+    <meta
+      property="og:description"
+      content="Exploring the creative and technical journey of Adna."
+    />
+    <!-- TODO: Update with a real image URL -->
+    <meta property="og:image" content="URL_GAMBAR_WEBSITEMU_YG_KEREN.jpg" />
+
+    <!-- Stylesheets and Fonts -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@500&family=Poppins:wght@400;600&family=Source+Code+Pro:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    
+    <!-- Font Awesome Icons -->
+    <script
+      src="https://kit.fontawesome.com/0052d9b045.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- ===== LOADING SCREEN ===== -->
+    <div id="loader-wrapper">
+      <div class="unfolding-line"></div>
+    </div>
+
+    <!-- ===== MAIN WEBSITE CONTAINER ===== -->
+    <main class="page-container">
+      <!-- PAGE 1: HERO -->
+      <section class="page hero-page">
+        <header class="navbar">
+          <nav>
+            <a href="#about" data-target="1">About</a> /
+            <a href="#portfolio" data-target="2">Portfolio</a> /
+            <a href="#contact" data-target="3">Contact me</a>
+          </nav>
+          <div class="email">aiziznor@gmail.com</div>
+        </header>
+        <div class="vertical-wrapper">
+          <div class="vertical-text">© 2025</div>
+        </div>
+        <section class="hero">
+          <div class="hero-left">
+            <div class="text-mask"><h2 class="welcome">Welcome</h2></div>
+            <div class="text-mask"><h2 class="welcome">to</h2></div>
+            <div class="text-mask"><h2 class="adna highlight">Adna</h2></div>
+          </div>
+          <div class="hero-right">
+            <div class="text-mask">
+              <p class="tagline">LET’S PRETEND THIS<br> LOOKS PROFESSIONAL</p>
+            </div>
+            <div class="brand-block">
+              <div class="brand">ADNA.</div>
+              <div class="brand-tagline">a self made design<br />by Aziz</div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- PAGE 2: ABOUT -->
+      <section class="page portfolio-page" id="about-page">
+        <a href="#" class="logo" data-target="0">ADNA.</a>
+        <div class="background-text">ADNA</div>
+        <div class="profile-content">
+          <div class="profile-left">
+            <h1 class="profile-title">
+              <span class="line">Hello,</span>
+              <span class="line">I'M AZIZ!</span>
+            </h1>
+            <p class="profile-bio">
+              Hey there! I'm Aziz, a curious problem solver who loves
+              technology, creativity, and occasionally breaking things just to
+              see how they work (don't worry, I usually fix them... eventually).
+            </p>
+          </div>
+          <div class="profile-right">
+            <div class="image-wrapper">
+              <img src="images/azizz.png" alt="Photo of Aziz" class="profile-photo" />
+              <div class="color-block"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 3: BRIDGE -->
+      <section class="page" id="bridge-page">
+        <div class="bridge-content">
+          <p class="teaser-text">My best work is yet to come.</p>
+          <a href="#contact" class="cta-link" data-target="3">
+            Let's build it together
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 5V19M12 19L18 13M12 19L6 13"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- PAGE 4: CONTACT -->
+      <section class="page contact-page" id="contact-page">
+        <div class="contact-center-content">
+          <p>
+            Fun fact: 83.76% of people who click this button go on to
+            <strong>live extraordinary lives.</strong>
+            <span>(Okay fine, I made that up but it could be true. Wanna test it?)</span>
+          </p>
+          <a href="mailto:aiziznor@gmail.com" class="contact-main-link"
+            >I read your mind.</a
+          >
+        </div>
+        <div class="socials-container">
+          <p>Go ahead, do your digital detective thing</p>
+          <div class="social-icons">
+            <a href="https://www.instagram.com/meazsiz/" target="_blank" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://x.com/micromanager_1" target="_blank" aria-label="X/Twitter">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/abdulazizadnan/" target="_blank" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== SLIDER UI ===== -->
+    <div class="slider-container">
+      <p class="slider-label">SLIDE TO EXPLORE</p>
+      <div class="slider">
+        <div class="slider-track"></div>
+        <div class="slider-handle"></div>
+      </div>
+    </div>
+
+    <!-- ===== KODE BARU DITAMBAHKAN DI SINI ===== -->
+    <!-- ===== SWIPE HINT ANIMASI (KHUSUS MOBILE) ===== -->
+    <div class="animated-swipe-hint">
+      <i class="fa-solid fa-chevron-left"></i>
+      <span>SWIPE</span>
+      <i class="fa-solid fa-chevron-right"></i>
+    </div>
+    
+    <script src="script.js"></script>
+  </body>
+</html>
