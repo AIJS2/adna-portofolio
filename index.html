@@ -4,17 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Meta Tags for SEO & Social Sharing -->
+    <!-- Meta Tags for Security, SEO & Social Sharing -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://kit.fontawesome.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://ka-f.fontawesome.com; font-src 'self' https://fonts.gstatic.com https://ka-f.fontawesome.com; img-src 'self' data: https:; connect-src 'self' https://ka-f.fontawesome.com; frame-ancestors 'none';"
+    />
     <title>Adna Portfolio</title>
     
     <!-- ====================================================== -->
-    <!-- ===== KODE FAVICON LENGKAP DIMASUKKAN DI SINI ===== -->
+    <!-- ===== KODE FAVICON LENGKAP ===== -->
     <!-- ====================================================== -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/images/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
     <link rel="icon" href="/images/favicon.ico"> 
     <link rel="manifest" href="/images/site.webmanifest">
     <!-- ====================================================== -->
@@ -29,7 +33,7 @@
       content="Exploring the creative and technical journey of Adna."
     />
  
-    <meta property="og:image" content="https://i.imgur.com/kfhFBH5.png" />
+    <meta property="og:image" content="images/ADNA_OG.jpg" />
 
     <!-- Stylesheets and Fonts -->
     <link rel="stylesheet" href="style.css" />
@@ -38,12 +42,14 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@500&family=Poppins:wght@400;600&family=Source+Code+Pro:wght@400&display=swap"
       rel="stylesheet"
+      crossorigin="anonymous"
     />
     
     <!-- Font Awesome Icons -->
     <script
       src="https://kit.fontawesome.com/0052d9b045.js"
       crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     ></script>
   </head>
   <body>
@@ -110,53 +116,135 @@
         </div>
       </section>
 
-      <!-- PAGE 3: BRIDGE -->
-      <section class="page" id="bridge-page">
-        <div class="bridge-content">
-          <p class="teaser-text">My best work is yet to come.</p>
-          <a href="#contact" class="cta-link" data-target="3">
-            Let's build it together
-            <svg
-              width="12"
-              height="12"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 5V19M12 19L18 13M12 19L6 13"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </a>
+      <!-- PAGE 3: PORTFOLIO SHOWCASE -->
+      <section class="page portfolio-showcase-page" id="bridge-page">
+        <div class="portfolio-showcase-container">
+          <div class="showcase-header">
+            <span class="showcase-subtitle">PORTFOLIO</span>
+            <h2 class="showcase-title">SELECTED PROJECTS</h2>
+          </div>
+          <div class="showcase-grid">
+            <div class="project-card" data-project-id="1">
+              <div class="project-num">01</div>
+              <div class="project-content">
+                <span class="project-category">PERSONAL BRANDING</span>
+                <h3 class="project-title">ADNA Portfolio Lab</h3>
+                <p class="project-desc">A playful personal site experimenting with horizontal navigation, editorial type, and a little controlled chaos.</p>
+                <span class="project-status">STATUS: IN PROGRESS</span>
+                <div class="project-tags">
+                  <span class="tag">Vanilla JS</span>
+                  <span class="tag">CSS3</span>
+                  <span class="tag">UI/UX</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-card" data-project-id="2">
+              <div class="project-num">02</div>
+              <div class="project-content">
+                <span class="project-category">INTERFACE EXPERIMENT</span>
+                <h3 class="project-title">Digital Playground</h3>
+                <p class="project-desc">A concept space for trying out modular layouts, visual systems, and interfaces that refuse to feel too ordinary.</p>
+                <span class="project-status">STATUS: CONCEPT</span>
+                <div class="project-tags">
+                  <span class="tag">Frontend</span>
+                  <span class="tag">Visual Systems</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-card" data-project-id="3">
+              <div class="project-num">03</div>
+              <div class="project-content">
+                <span class="project-category">MOTION STUDY</span>
+                <h3 class="project-title">Interaction & Motion Lab</h3>
+                <p class="project-desc">A collection of small experiments exploring gesture, spring physics, character reveals, and micro-interactions.</p>
+                <span class="project-status">STATUS: PLAYGROUND</span>
+                <div class="project-tags">
+                  <span class="tag">Creative Code</span>
+                  <span class="tag">Animation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bridge-content">
+            <p class="currently-exploring">CURRENTLY EXPLORING<br><strong>motion systems / creative code / weird interfaces</strong></p>
+            <div class="teaser-wrapper">
+              <p class="teaser-text">My best work is yet to come.</p>
+            </div>
+            <a href="#contact" class="cta-link" data-target="3">
+              Let's build it together
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 5V19M12 19L18 13M12 19L6 13"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
         </div>
       </section>
 
       <!-- PAGE 4: CONTACT -->
       <section class="page contact-page" id="contact-page">
         <div class="contact-center-content">
-          <p>
-            Fun fact: 83.76% of people who click this button go on to
-            <strong>live extraordinary lives.</strong>
-            <span>(Okay fine, I made that up but it could be true. Wanna test it?)</span>
+          <span class="contact-eyebrow">04 / OPEN CHANNEL</span>
+          <h2 class="contact-title">Have an idea?<br /><em>Let's make it weird.</em></h2>
+          <p class="contact-intro">
+            I like thoughtful interfaces, playful experiments, and projects
+            with room for a little personality.
           </p>
-          <a href="mailto:aiziznor@gmail.com" class="contact-main-link"
-            >I read your mind.</a
-          >
+          <div class="contact-availability">
+            <span class="availability-dot"></span>
+            <span>AVAILABLE FOR SELECTED PROJECTS</span>
+          </div>
+          <div class="contact-chips">
+            <button class="chip" data-subject="Project Inquiry: UI/UX Design" data-label="I need UI/UX Design"><span>01</span> Need UI/UX Design <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></button>
+            <button class="chip" data-subject="Project Inquiry: Web Development" data-label="I need Web Development"><span>02</span> Need Web Development <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></button>
+            <button class="chip" data-subject="Hello Aziz! Just saying hi" data-label="Just saying hi!"><span>03</span> Just saying hi <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></button>
+          </div>
+          <a href="#" class="contact-main-link" id="contact-button" data-user="aiziznor" data-domain="gmail.com">
+            <span>I read your mind</span>
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+
+          <!-- Form Simpel -->
+          <form name="contact" method="POST" data-netlify="true" class="simple-form">
+            <div class="input-group">
+              <input type="text" name="name" placeholder="Name" required>
+            </div>
+            <div class="input-group">
+              <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="input-group">
+              <textarea name="message" rows="5" placeholder="Message" required></textarea>
+            </div>
+
+            <button type="submit" class="simple-submit">
+              SEND MESSAGE
+            </button>
+          </form>
+          <div id="form-success" class="form-success">
+            Pesan terkirim! Terima kasih telah menghubungi saya.
+          </div>
         </div>
         <div class="socials-container">
-          <p>Go ahead, do your digital detective thing</p>
+          <p>Find me in the wild</p>
           <div class="social-icons">
-            <a href="https://www.instagram.com/meazsiz/" target="_blank" aria-label="Instagram">
+            <a href="https://www.instagram.com/meazsiz/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <i class="fa-brands fa-instagram"></i>
             </a>
-            <a href="https://x.com/micromanager_1" target="_blank" aria-label="X/Twitter">
+            <a href="https://x.com/micromanager_1" target="_blank" rel="noopener noreferrer" aria-label="X/Twitter">
               <i class="fa-brands fa-x-twitter"></i>
             </a>
-            <a href="https://www.linkedin.com/in/abdulazizadnan/" target="_blank" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/abdulazizadnan/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <i class="fa-brands fa-linkedin-in"></i>
             </a>
           </div>
@@ -166,7 +254,7 @@
 
     <!-- ===== SLIDER UI ===== -->
     <div class="slider-container">
-      <p class="slider-label">SLIDE TO EXPLORE</p>
+      <p class="slider-label">START HERE</p>
       <div class="slider">
         <div class="slider-track"></div>
         <div class="slider-handle"></div>
@@ -179,7 +267,84 @@
       <span>SWIPE</span>
       <i class="fa-solid fa-chevron-right"></i>
     </div>
+
+    <div class="mobile-page-nav" aria-label="Page navigation">
+      <button type="button" class="mobile-page-button" data-mobile-direction="-1" aria-label="Previous page">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+      </button>
+      <span class="mobile-page-indicator" aria-live="polite">01 — START</span>
+      <button type="button" class="mobile-page-button" data-mobile-direction="1" aria-label="Next page">
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </button>
+    </div>
     
+    <!-- ===== PROJECT DETAIL MODAL OVERLAY ===== -->
+    <div id="project-modal" class="modal-overlay">
+      <div class="modal-sheet">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <aside class="modal-side-rail" aria-hidden="true">
+          <span>ADNA / ARCHIVE</span>
+          <span class="modal-rail-line"></span>
+          <span id="modal-rail-number">01</span>
+        </aside>
+        <div class="modal-header-accent">
+          <div class="modal-header-copy">
+            <span class="modal-kicker">SELECTED EXPERIMENT / <span id="modal-project-num">01</span></span>
+            <span class="modal-category" id="modal-category">PERSONAL BRANDING</span>
+            <h2 class="modal-title" id="modal-title">Project Title</h2>
+          </div>
+          <div class="modal-visual" aria-hidden="true">
+            <span class="modal-visual-grid"></span>
+            <span class="modal-visual-cross modal-cross-one"></span>
+            <span class="modal-visual-cross modal-cross-two"></span>
+            <span class="modal-visual-number">01</span>
+            <span class="modal-visual-line"></span>
+            <span class="modal-visual-dot"></span>
+          </div>
+          <span class="modal-coordinate modal-coordinate-top">34° 02' 18" N / 118° 14' 37" W</span>
+          <div class="modal-header-bottom">
+            <span class="modal-status" id="modal-status">IN PROGRESS</span>
+            <span class="modal-scroll-note">SCROLL TO EXPLORE</span>
+          </div>
+        </div>
+        <div class="modal-body">
+          <p class="modal-desc" id="modal-desc">Detailed case study description goes here...</p>
+
+          <div class="modal-meta-grid">
+            <div class="modal-section modal-meta-card">
+              <h4><i class="fa-solid fa-code"></i> BUILT WITH</h4>
+              <div class="modal-tags" id="modal-tags"></div>
+            </div>
+            <div class="modal-section modal-meta-card modal-status-card">
+              <h4><i class="fa-solid fa-sparkles"></i> STATE</h4>
+              <p id="modal-state-copy">An ongoing experiment.</p>
+            </div>
+          </div>
+
+          <div class="modal-section modal-highlights-card">
+            <h4><i class="fa-solid fa-star"></i> KEY HIGHLIGHTS</h4>
+            <ul class="modal-highlights" id="modal-highlights"></ul>
+          </div>
+
+          <div class="modal-actions">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="modal-btn primary" id="modal-live-link">
+              <span>Live Demo</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="modal-btn secondary" id="modal-code-link">
+              <i class="fa-brands fa-github"></i>
+              <span>GitHub Repo</span>
+            </a>
+          </div>
+          <div class="modal-footer-mark">
+            <span>END OF FILE</span>
+            <span class="modal-footer-line"></span>
+            <span>ADNAIZF1 / 2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
