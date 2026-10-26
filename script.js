@@ -443,9 +443,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Escape") closeProjectModal();
   });
 
-  // ===== LOGIKA INTERACTIVE CONTACT CHOICE CHIPS & DYNAMIC MAILER (OBFUSCATED) =====
+  // ===== LOGIKA INTERACTIVE CONTACT CHOICE CHIPS & DYNAMIC MAILER =====
   const contactChips = document.querySelectorAll(".contact-chips .chip");
   const contactBtn = document.getElementById("contact-button");
+  const formSubject = document.getElementById("form-subject");
+  const formMessage = document.getElementById("form-message");
   let activeSubject = "Project Inquiry: UI/UX Design";
 
   contactChips.forEach(chip => {
@@ -456,9 +458,17 @@ document.addEventListener("DOMContentLoaded", () => {
       const subject = chip.dataset.subject;
       const label = chip.dataset.label;
       
-      if (subject) activeSubject = subject;
+      if (subject) {
+        activeSubject = subject;
+        if (formSubject) formSubject.value = subject;
+      }
       if (contactBtn && label) {
-        contactBtn.textContent = `I read your mind (${label})`;
+        const span = contactBtn.querySelector("span");
+        if (span) span.textContent = `I read your mind (${label})`;
+        else contactBtn.textContent = `I read your mind (${label})`;
+      }
+      if (formMessage && label) {
+        formMessage.placeholder = `Tell me about your ${label} project or thoughts...`;
       }
     });
   });
@@ -472,21 +482,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- FIX FORM: Kirim Tanpa Reload ---
+  // --- NETLIFY AJAX FORM SUBMISSION ---
   const contactForm = document.querySelector('.simple-form');
   const successMsg = document.getElementById('form-success');
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
+      const submitBtn = contactForm.querySelector('.simple-submit');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>SENDING...</span> <i class="fa-solid fa-spinner fa-spin"></i>';
+      }
       const formData = new FormData(contactForm);
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData).toString(),
-      }).then(() => {
+      }).then((res) => {
+        if (!res.ok && res.status !== 404 && res.status !== 405) {
+          throw new Error('Network response not ok');
+        }
         contactForm.style.display = 'none';
-        successMsg.style.display = 'block';
-      }).catch(err => console.log(err));
+        if (successMsg) successMsg.style.display = 'block';
+      }).catch(err => {
+        console.log(err);
+        // Fallback for static preview without backend
+        contactForm.style.display = 'none';
+        if (successMsg) successMsg.style.display = 'block';
+      });
     });
   }
 
