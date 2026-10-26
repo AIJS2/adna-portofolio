@@ -7,7 +7,7 @@
     <!-- Meta Tags for Security, SEO & Social Sharing -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' https://kit.fontawesome.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://ka-f.fontawesome.com; font-src 'self' https://fonts.gstatic.com https://ka-f.fontawesome.com; img-src 'self' data: https:; connect-src 'self' https://ka-f.fontawesome.com;"
+      content="default-src 'self'; script-src 'self' https://kit.fontawesome.com https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://ka-f.fontawesome.com; font-src 'self' https://fonts.gstatic.com https://ka-f.fontawesome.com; img-src 'self' data: https:; connect-src 'self' https://ka-f.fontawesome.com; frame-src https://www.google.com;"
     />
     <title>Adna Portfolio</title>
     
@@ -225,7 +225,7 @@
               </div>
 
               <!-- Form Simpel (Netlify-ready) -->
-              <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="simple-form">
+              <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-netlify-recaptcha="true" class="simple-form">
                 <input type="hidden" name="form-name" value="contact" />
                 <p hidden><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
                 <input type="hidden" name="subject" id="form-subject" value="General Inquiry" />
@@ -238,6 +238,8 @@
                 <div class="input-group">
                   <textarea name="message" id="form-message" rows="3" placeholder="Tell me about your project or idea..." required></textarea>
                 </div>
+
+                <div data-netlify-recaptcha="true"></div>
 
                 <button type="submit" class="simple-submit">
                   <span>SEND MESSAGE</span>
