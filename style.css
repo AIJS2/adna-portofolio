@@ -915,6 +915,19 @@ body.is-visible .brand-block {
   font-weight: 500;
   text-align: center;
 }
+#form-error {
+  display: none;
+  margin-top: 14px;
+  padding: 14px 18px;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  background: #fef2f2;
+  color: #991b1b;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+}
 
 /* ================================== */
 /*     SLIDER UI                      */

@@ -485,30 +485,37 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- NETLIFY AJAX FORM SUBMISSION ---
   const contactForm = document.querySelector('.simple-form');
   const successMsg = document.getElementById('form-success');
+  const errorMsg = document.getElementById('form-error');
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
       const submitBtn = contactForm.querySelector('.simple-submit');
+      const originalBtnHtml = submitBtn ? submitBtn.innerHTML : '';
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<span>SENDING...</span> <i class="fa-solid fa-spinner fa-spin"></i>';
       }
+      if (errorMsg) errorMsg.style.display = 'none';
+
       const formData = new FormData(contactForm);
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData).toString(),
       }).then((res) => {
-        if (!res.ok && res.status !== 404 && res.status !== 405) {
-          throw new Error('Network response not ok');
+        if (!res.ok) {
+          throw new Error(`Submit failed with status: ${res.status}`);
         }
         contactForm.style.display = 'none';
+        if (errorMsg) errorMsg.style.display = 'none';
         if (successMsg) successMsg.style.display = 'block';
       }).catch(err => {
-        console.log(err);
-        // Fallback for static preview without backend
-        contactForm.style.display = 'none';
-        if (successMsg) successMsg.style.display = 'block';
+        console.error('Contact form submission error:', err);
+        if (errorMsg) errorMsg.style.display = 'block';
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnHtml;
+        }
       });
     });
   }
