@@ -489,13 +489,35 @@ document.addEventListener("DOMContentLoaded", () => {
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
+
+      // 1. Validasi keberadaan script reCAPTCHA
+      if (typeof grecaptcha === 'undefined') {
+        if (errorMsg) {
+          errorMsg.innerHTML = '<p>Gagal memuat sistem verifikasi keamanan. Silakan muat ulang (refresh) halaman.</p>';
+          errorMsg.style.display = 'block';
+        }
+        return;
+      }
+
+      // 2. Validasi token reCAPTCHA (wajib dicentang sebelum request dikirim)
+      const recaptchaResponse = typeof grecaptcha.getResponse === 'function' ? grecaptcha.getResponse() : '';
+      if (!recaptchaResponse || recaptchaResponse.trim() === '') {
+        if (errorMsg) {
+          errorMsg.innerHTML = "<p>Silakan centang 'Saya bukan robot' terlebih dahulu.</p>";
+          errorMsg.style.display = 'block';
+        }
+        return;
+      }
+
+      // Bersihkan pesan error jika validasi lolos
+      if (errorMsg) errorMsg.style.display = 'none';
+
       const submitBtn = contactForm.querySelector('.simple-submit');
       const originalBtnHtml = submitBtn ? submitBtn.innerHTML : '';
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<span>SENDING...</span> <i class="fa-solid fa-spinner fa-spin"></i>';
       }
-      if (errorMsg) errorMsg.style.display = 'none';
 
       const formData = new FormData(contactForm);
       fetch("/", {
@@ -511,7 +533,13 @@ document.addEventListener("DOMContentLoaded", () => {
         if (successMsg) successMsg.style.display = 'block';
       }).catch(err => {
         console.error('Contact form submission error:', err);
-        if (errorMsg) errorMsg.style.display = 'block';
+        if (errorMsg) {
+          errorMsg.innerHTML = '<p>Maaf, pesan gagal terkirim. Silakan coba lagi atau kirim pesan langsung via email.</p>';
+          errorMsg.style.display = 'block';
+        }
+        if (window.grecaptcha && typeof grecaptcha.reset === 'function') {
+          grecaptcha.reset();
+        }
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.innerHTML = originalBtnHtml;
